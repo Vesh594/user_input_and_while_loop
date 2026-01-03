@@ -1,0 +1,85 @@
+message = input("Tell me something, and I will repeat it back to you: ")
+print(message)
+print("\nLet's write clear prompts:\n")
+name = input("Please enter your name: ")
+print(f"\nHello, {name.title()}!")
+prompt = "If you share your name, we can personalize the messages you see."
+# The += operator takes the string that was assingned to prompt and adds the new string onto the end
+prompt += "\nWhat is your first name? \n"
+name = input(prompt)
+print(f"\nHello, {name.title()}!")
+print("\nLet's use int() to accept numerical input:\n")
+height = input("How tall are you in inches? ")
+# The int() function changes the string to an integer to be calculated
+height = int(height)
+if height >= 48:
+    print("\nYou're tall enough to ride!\n")
+else:
+    print("\nYou'll be able to ride when you're a little older.\n")
+# The modulo operator (%) which divides one number by another number and returns the remainder
+print("\nLet's see if a number is even or odd")
+number = input("Enter a number, and I'll tell you if it's even or odd: ")
+number = int(number)
+if number % 2 == 0:
+    print(f"\nThe number {number} is even.\n")
+else:
+    print(f"\nThe number {number} is odd.\n")
+print("\nLet's practice:\n")
+print("Let's start with rental cars:")
+rental_cars = input("What kind of rental car would you like? ")
+print(f"Let me see if I can find you a {rental_cars}.")
+print("\nLet's make a restaurant sitting:\n")
+dinner = input("How many people are in your dinner group? ")
+dinner = int(dinner)
+if dinner > 8:
+    print("Please wait for a table.")
+else:
+    print("Your table is ready, please take a seat.")
+print("\nLet's do multiples of ten:\n")
+multiple_of_ten = input("Choose a number, I will tell you if it is a multiple of ten or not: ")
+multiple_of_ten = int(multiple_of_ten)
+if multiple_of_ten % 10 == 0:
+    print("\nYes, the number {multiple_of_ten} is a multiple of ten.\n")
+else:
+    print("\nNo, the number {multiple_of_ten} is not a multiple of ten.\n")
+print("\nLet's fill a dictionary with user input:\n")
+responses = {}
+# Set a flag to indicate that polling is active.
+polling_active = True
+while polling_active:
+    name = input("\nWhat is your name? \n")
+    response = input("Which mountain would you like to climb someday? ")
+    responses[name] = response
+    repeat = input("would you like to let another person respond? (yes/no) ")
+    if repeat == 'no':
+        polling_active = False
+print("\n--Poll Results--\n")
+for name, response in responses.items():
+    print(f"{name.title()} would you like to climb {response}.")
+poll_results = {}
+while True:
+  place = input("If you could visit one place in the world, where would you go? ")
+  if place:
+      poll_results[place] = poll_results.get(place, 0) + 1
+  again = input("Would you like to let another person respond? (yes/no)")
+  if again != 'yes':
+      break
+print("\n--Dream Vacation Poll Results--\n")
+for place, votes in poll_results.items():
+    if votes == 1:
+        print(f"{place}: {votes} vote")
+    else:
+        print(f"{place}: {votes} votes")
+print("\nOR\n")
+poll_results = {}
+polling_active = True
+while polling_active:
+    name = input("\nWhat is your name? \n")
+    place = input("If you could visit one place in the world, where would you go? ")
+    poll_results[name] = place
+    again = input("Would you like to let another person respond? (yes/no)")
+    if again == "no":
+        polling_active = False
+print("\n--Poll Results--\n")
+for name, place in poll_results.items():
+    print(f"{name.title()} would like to visit {place.title()}.")
